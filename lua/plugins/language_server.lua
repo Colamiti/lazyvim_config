@@ -8,7 +8,11 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
-        sqlls = {},
+        sqlls = {
+          root_dir = function(fname)
+            return vim.loop.os_homedir()
+          end,
+        },
       },
     },
   },
